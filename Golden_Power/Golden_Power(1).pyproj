@@ -35,7 +35,6 @@
   <ItemGroup>
     <Folder Include="static\" />
     <Folder Include="static\content\" />
-    <Folder Include="static\images\" />
     <Folder Include="static\fonts\" />
     <Folder Include="static\scripts\" />
     <Folder Include="views\" />
@@ -44,16 +43,11 @@
     <Content Include="requirements.txt" />
     <Content Include="static\content\bootstrap.css" />
     <Content Include="static\content\bootstrap.min.css" />
-    <Content Include="static\images\dumbbells.jpg" />
-    <Content Include="static\images\Golden_Power.png" />
-    <Content Include="static\images\sports_belt.jpeg" />
-    <Content Include="static\images\sports_nutrition.jpg" />
     <Content Include="static\content\site.css" />
     <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="static\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="static\images\Erick.png" />
     <Content Include="static\scripts\bootstrap.js" />
     <Content Include="static\scripts\bootstrap.min.js" />
     <Content Include="static\scripts\jquery-1.10.2.intellisense.js" />
