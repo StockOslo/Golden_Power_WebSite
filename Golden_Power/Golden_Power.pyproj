@@ -44,6 +44,10 @@
     <Content Include="requirements.txt" />
     <Content Include="static\content\bootstrap.css" />
     <Content Include="static\content\bootstrap.min.css" />
+    <Content Include="static\images\dumbbells.jpg" />
+    <Content Include="static\images\Golden_Power.png" />
+    <Content Include="static\images\sports_belt.jpeg" />
+    <Content Include="static\images\sports_nutrition.jpg" />
     <Content Include="static\content\site.css" />
     <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
