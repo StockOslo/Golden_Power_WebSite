@@ -62,7 +62,7 @@ top: 5px; left: 10px;">
     </div>
     <div class="col-md-4">
         <div class="product-card">
-            <img src="static/content/images/sports_belt.jpeg">
+            <img src="static/images/sports_belt.jpeg">
             <h3>Sports goods for the gym</h3>
             <p>Professional equipment for gym training.</p>
             <button class="btn btn-custom">Buy</button>
