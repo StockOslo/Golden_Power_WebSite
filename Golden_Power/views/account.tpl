@@ -1,15 +1,26 @@
 % rebase('layout.tpl', title=title, year=year)
+
+<style>
+    .profile-photo img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        display: block;
+    }
+</style>
+
 <div class="jumbotron">
     <h1>My Account</h1>
     <p class="lead">Manage your profile and orders</p>
 </div>
 
-<div class="container">
-    <!-- Первый ряд: Аватарка и информация о пользователе -->
+<div class="profile-container">
     <div class="row">
         <div class="block profile-block">
             <div class="profile-photo">
-                <img src="static/images/avatar.jpg">
+                <img src="static/images/avatar.jpg" alt="Profile Photo">
             </div>
             <div class="profile-info">
                 <h2>John Doe</h2>
@@ -29,7 +40,6 @@
         </div>
     </div>
 
-    <!-- Второй ряд: Заказы и настройки -->
     <div class="row">
         <div class="block orders-block">
             <h2>My Orders</h2>

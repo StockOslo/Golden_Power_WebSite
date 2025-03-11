@@ -1,5 +1,15 @@
 % rebase('layout.tpl', title=title, year=year)
 
+<style>
+    .container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 10px; 
+    }
+</style>
+
 <div class="jumbotron">
     <h1>About Our Store</h1>
     <p class="lead">The best products for sports and an active lifestyle</p>

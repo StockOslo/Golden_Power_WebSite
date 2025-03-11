@@ -249,3 +249,11 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+.profile-photo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Обрезает изображение по размеру */
+    border-radius: 50%; /* Делаем фото круглым */
+    border: 2px solid #ccc; /* (Опционально) Добавляем границу */
+}
