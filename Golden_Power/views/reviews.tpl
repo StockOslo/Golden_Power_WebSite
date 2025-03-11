@@ -92,9 +92,6 @@
 </style>
 
 <div class="jumbotron">
-    <div class="mr-4">
-        <img src="static/images/Golden_Power.png" style="max-width: 200px; position: absolute; top: 5px; left: 10px;">
-    </div>
     <div>
         <h1>Customer Reviews</h1>
         <p class="lead">What our customers are saying about us</p>
