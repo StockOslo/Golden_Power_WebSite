@@ -27,6 +27,7 @@
                     <li><a href="/about" style="font-family: Academy Engraved LET; color :gold">About</a></li>
                     <li><a href="/contact" style="font-family: Academy Engraved LET; color :gold">Contact</a></li>
                     <li><a href="/delivery" style="font-family: Academy Engraved LET; color: gold">Delivery</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/account" style="font-family: Academy Engraved LET; color: gold">Account</a></li>
