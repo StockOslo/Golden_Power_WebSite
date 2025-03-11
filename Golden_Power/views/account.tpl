@@ -9,7 +9,7 @@
     <div class="row">
         <div class="block profile-block">
             <div class="profile-photo">
-                <img src="https://via.placeholder.com/150" alt="Profile Photo">
+                <img src="static/images/avatar.jpg">
             </div>
             <div class="profile-info">
                 <h2>John Doe</h2>
@@ -55,26 +55,6 @@
                 <li><a href="#change-password">Change Password</a></li>
                 <li><a href="#privacy-settings">Privacy Settings</a></li>
                 <li><a href="#notifications">Notifications</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Третий ряд: Контакты -->
-    <div class="row">
-        <div class="block contact-block" id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: <strong>support@example.com</strong></p>
-            <p>Phone: <strong>+1 800 123 45 67</strong></p>
-            <p>Address: <strong>123 Main St, Los Angeles, CA 90001</strong></p>
-            <a href="#" class="btn btn-custom">Contact</a>
-        </div>
-
-        <div class="block social-block">
-            <h2>Follow Us</h2>
-            <ul>
-                <li><a href="#facebook">Facebook</a></li>
-                <li><a href="#twitter">Twitter</a></li>
-                <li><a href="#instagram">Instagram</a></li>
             </ul>
         </div>
     </div>
