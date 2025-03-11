@@ -56,3 +56,12 @@ def reviews():
         year=datetime.now().year
     )
 
+@route('/cart')
+@view('cart')
+def cart():
+    """Renders the cart page."""
+    return dict(
+        title='Cart',
+        message='Your shopping cart.',
+        year=datetime.now().year
+    )
