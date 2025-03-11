@@ -52,9 +52,10 @@
         <div class="block settings-block">
             <h2>Account Settings</h2>
             <ul>
-                <li><a href="#change-password">Change Password</a></li>
-                <li><a href="#privacy-settings">Privacy Settings</a></li>
-                <li><a href="#notifications">Notifications</a></li>
+                    <li><a href="https://accounts.google.com/v3/signin/challenge/pk/presend?TL=ADgdZ7QARNvW3yDf3uZoyHkgGuVZMQg8gH_7Rkp6Eh4kBVF_XmX2LGBeDNmZOMCF&cid=1&continue=https%3A%2F%2Fmyaccount.google.com%2Fsigninoptions%2Fpassword&flowName=GlifWebSignIn&hl=ru&ifkv=ASSHykoh_oQT-q8CFbksgiIU1ZweeAOmzw6Pt3brMQQJkKMa0vWAtUviPgqxKb5M2Tm0dMkUJsKh_Q&kdi=CAM&rart=ANgoxcd-u-L02_tXThkjtEAR_5HEgZyvOJFo_QFmOyJhrJILQ_IgNabDzN1wNYaS5WEPXdGZnc8r81wKq1tOI1roSwhkoqbo19Ufr31VUB0Nlf6H5CuXDsk&rpbg=1&sarp=1&scc=1&service=accountsettings" target="_blank">Change Password</a></li>
+                    <li><a href="https://privacy.kaspersky.com/ru/articles/operation-system-settings-androidos-medium/" target="_blank">Privacy Settings</a></li>
+                    <li><a href="https://faq.whatsapp.com/797069521522888/?locale=ru_RU&cms_platform=android" target="_blank">Notifications</a></li>
+                    <li><a href="https://help.steampowered.com/ru/wizard/HelpWithLoginInfo?reset=2&issueid=409" target="_blank">Change Email</a></li>
             </ul>
         </div>
     </div>
