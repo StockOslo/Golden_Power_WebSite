@@ -34,6 +34,18 @@ def about():
         year=datetime.now().year
     )
 
+
+@route('/account')
+@view('account')
+def about():
+    """Renders the about page."""
+    return dict(
+        title='Account',
+        message='Your application description page.',
+        year=datetime.now().year
+    )
+
+
 @route('/reviews')
 @view('reviews')
 def reviews():
@@ -43,3 +55,4 @@ def reviews():
         message='Information about user reviews.',
         year=datetime.now().year
     )
+

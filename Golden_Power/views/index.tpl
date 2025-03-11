@@ -35,7 +35,7 @@
             width: 80%;
             border-radius: 10px;
         }
-}
+
 </style>
 
 <div class="jumbotron">
