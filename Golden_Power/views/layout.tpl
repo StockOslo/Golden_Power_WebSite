@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    
 </head>
 
 <body>
@@ -18,18 +19,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="static\images\Erick.png"> 
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/delivery">Delivery</a></li>
+                    <li><a href="/home" style="font-family: Academy Engraved LET; color :gold">Home</a></li>
+                    <li><a href="/about" style="font-family: Academy Engraved LET; color :gold">About</a></li>
+                    <li><a href="/contact" style="font-family: Academy Engraved LET; color :gold">Contact</a></li>
+                    <li><a href="/delivery" style="font-family: Academy Engraved LET; color: gold">Delivery</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/account">Account</a></li>
-                    <li><a href="/cart">Cart</a></li>
+                    <li><a href="/account" style="font-family: Academy Engraved LET; color: gold">Account</a></li>
+                    <li><a href="/cart" style="font-family: Academy Engraved LET; color: gold">Cart</a></li>
                 </ul>
             </div>
         </div>
@@ -39,7 +41,7 @@
         {{!base}}
         <hr />
         <footer>
-            <p>&copy; {{ year }} - My Bottle Application</p>
+            <p>&copy; {{ year }} - OOO Golden Power Team</p>
         </footer>
     </div>
 
