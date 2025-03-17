@@ -10,11 +10,6 @@
         position: relative;
     }
 
-    .jumbotron h1 {
-        font-size: 3.5rem;
-        margin-bottom: 20px;
-    }
-
     .jumbotron .lead {
         font-size: 1.8rem;
         margin-bottom: 30px;
