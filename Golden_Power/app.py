@@ -6,7 +6,8 @@ import bottle
 import os
 import sys
 import routes
-from forms import useful_articles
+from forms import useful_articles, reviews
+
 # Импортируем обработчики маршрутов
 
 # Включаем режим отладки, если нужно
