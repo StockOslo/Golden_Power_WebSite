@@ -6,7 +6,9 @@
     <title>{{ title }} - Golden power application</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/all_styles.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <script src="/static/scripts/form_validation_useful_art.js"></script>
     
 </head>
 
@@ -21,17 +23,18 @@
                 </button>
                 
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/home" style="font-family: Academy Engraved LET; color :gold">Home</a></li>
-                    <li><a href="/about" style="font-family: Academy Engraved LET; color :gold">About</a></li>
-                    <li><a href="/contact" style="font-family: Academy Engraved LET; color :gold">Contact</a></li>
-                    <li><a href="/reviews" style="font-family: Academy Engraved LET; color: gold">Reviews</a></li>
-
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/useful_articles">Useful articles</a></li>
+                    <li><a href="/reviews">Reviews</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/account" style="font-family: Academy Engraved LET; color: gold">Account</a></li>
-                    <li><a href="/cart" style="font-family: Academy Engraved LET; color: gold">Cart</a></li>
+                    <li><a href="/account">Account</a></li>
+                    <li><a href="/cart">Cart</a></li>
+
                 </ul>
             </div>
         </div>
