@@ -1,6 +1,7 @@
 % rebase('layout.tpl', title='Cart', year=year)
 
-<style>
+<style id="cart_styles_cart">
+    /* cart_styles_cart */
     .jumbotron {
         background: linear-gradient(45deg, #ffd700, #daa520);
         color: white;
