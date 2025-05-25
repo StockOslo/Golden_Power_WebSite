@@ -5,7 +5,9 @@ This script runs the application using a development server.
 import bottle
 import os
 import sys
-import routes  # Импортируем обработчики маршрутов
+import routes
+from forms import useful_articles
+# Импортируем обработчики маршрутов
 
 # Включаем режим отладки, если нужно
 if '--debug' in sys.argv[1:] or 'SERVER_DEBUG' in os.environ:

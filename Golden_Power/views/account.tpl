@@ -1,16 +1,5 @@
 % rebase('layout.tpl', title=title, year=year)
 
-<style>
-    .profile-photo img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 2px solid #ccc;
-        display: block;
-    }
-</style>
-
 <div class="jumbotron">
     <h1>My Account</h1>
     <p class="lead">Manage your profile and orders</p>

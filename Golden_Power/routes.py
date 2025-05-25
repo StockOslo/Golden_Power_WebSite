@@ -65,3 +65,32 @@ def cart():
         message='Your shopping cart.',
         year=datetime.now().year
     )
+
+@route('/articles')
+@view('articles')
+def cart():
+    """Renders the cart page."""
+    return dict(
+        title='Articles',
+        message='Our list of articles',
+        year=datetime.now().year
+    )
+@route('/useful_articles')
+@view('useful_articles')
+def useful_articles():
+    """Renders the useful articles page."""
+    import json, os
+    file_path = os.path.join('static', 'storage_articles.json')
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            articles = json.load(f)
+    except Exception as e:
+        articles = []
+        print(f"Ошибка загрузки статей: {e}")
+    return dict(
+        title='Articles',
+        message='Our list of articles',
+        articles=articles,
+        errors=[],
+        year=datetime.now().year
+    )
