@@ -4,32 +4,21 @@
         "email": "erik.antonov@icloud.com",
         "created_at": "2025-05-23",
         "article": {
-            "title": "How to be",
-            "image_url": "http://localhost:8080/useful_articles",
-            "link": "http://localhost:8080/useful_articles",
-            "description": "<style>\r\n.form-card input[type=\"text\"],\r\n.form-card input[type=\"date\"],\r\n.form-card input[type=\"url\"],\r\n.form-card input[type=\"email\"],\r\n.form-card textarea {\r\n  width: 100%;\r\n  box-sizing: border-box;\r\n  border-radius: 8px;\r\n  border: 1.5px solid #e4cc70;\r\n  padding: 12px 13px;\r\n  font-size: 16px;\r\n  margin-bottom: 0;\r\n  background: #fffbef;\r\n}\r\n.form-card textarea {\r\n  min-height: 100px;\r\n  resize: vertical;\r\n}\r\n</style>"
+            "title": "Kids our future",
+            "image_url": "https://eurodon61.ru/upload/iblock/982/f2a7mlbdnq6fgpkneg1pqdmiw7uvvyvq.jpg",
+            "link": "https://eurodon61.ru/about/articles/rol-sporta-v-zhizni-rebyenka-ot-doshkolnogo-vozrasta-do-podrostkov/",
+            "description": "How kids can add impact in our life"
         }
     },
     {
-        "author": "Erika",
-        "email": "erik.antonov@icloud.com",
-        "created_at": "2025-05-23",
+        "author": "Alexey",
+        "email": "Alexey@gmail.com",
+        "created_at": "2025-05-26",
         "article": {
-            "title": "How to be",
-            "image_url": "http://localhost:8080/useful_articles",
-            "link": "http://localhost:8080/useful_articles",
-            "description": "http://localhost:8080/useful_articles"
-        }
-    },
-    {
-        "author": "Erika",
-        "email": "erika.antonov@icloud.com",
-        "created_at": "2025-05-23",
-        "article": {
-            "title": "http://localhost:8080/useful_articles",
-            "image_url": "http://localhost:8080/useful_articles",
-            "link": "http://localhost:8080/useful_articles",
-            "description": "http://localhost:8080/useful_articles"
+            "title": "New word of football",
+            "image_url": "https://ss.sport-express.ru/userfiles/materials/211/2112919/1180x665.jpg",
+            "link": "https://ss.sport-express.ru/userfiles/materials/211/2112919/1180x665.jpg",
+            "description": "How Messi change malosia"
         }
     }
 ]

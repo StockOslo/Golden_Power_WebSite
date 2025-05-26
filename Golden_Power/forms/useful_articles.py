@@ -1,3 +1,4 @@
+# Импортируем необходимые библиотеки
 from bottle import route, view, post, request
 import json
 import os
@@ -8,6 +9,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ARTICLES_FILE = PROJECT_ROOT / 'static' / 'json_storage' / 'storage_articles.json'
 
+# Регулярные выражения для проверки email и URL
 EMAIL_RE = re.compile(
     r"^(?!\.)[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*"
     r"@"
@@ -23,6 +25,7 @@ URL_RE = re.compile(
     r'(/.*)?$'
 )
 
+# Проверка корректности email
 def is_valid_email(email):
     m = EMAIL_RE.match(email)
     if not m:
@@ -32,9 +35,11 @@ def is_valid_email(email):
         return False
     return True
 
+# Проверка корректности URL
 def is_valid_url(url):
     return bool(URL_RE.match(url))
 
+# Загрузка статей из JSON-файла
 def load_articles():
     """Загружает все статьи."""
     if not os.path.exists(ARTICLES_FILE):
@@ -45,6 +50,7 @@ def load_articles():
     except Exception:
         return []
 
+# Сохранение новой статьи в JSON-файл
 def save_article(new_entry):
     """Добавляет статью для email, если автор совпадает или этот email новый."""
     articles = load_articles()
@@ -52,12 +58,18 @@ def save_article(new_entry):
     with open(ARTICLES_FILE, 'w', encoding='utf-8') as f:
         json.dump(articles, f, ensure_ascii=False, indent=4)
 
+# Отображение списка статей
 @route('/useful_articles')
 @view('useful_articles')
 def show_articles():
-    articles = load_articles()
+    articles = sorted(
+        load_articles(),
+        key=lambda x: x['created_at'],
+        reverse=True
+    )
     return dict(articles=articles, errors=[], year=datetime.now().year)
 
+# Добавление новой статьи с валидацией данных
 @post('/useful_articles')
 @view('useful_articles')
 def add_article():
