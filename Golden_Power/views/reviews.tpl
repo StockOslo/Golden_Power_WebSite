@@ -20,7 +20,7 @@
   <div class="scroll-shadow-block">
     <section class="add-form-section">
       <h2>Add a Review</h2>
-      <form action="/add" method="post" class="form-card" novalidate>
+      <form action="/add" method="post" class="form-card left-aligned-form" novalidate>
 
         <div class="form-row form-row-vertical">
           <div class="form-group">
@@ -34,19 +34,6 @@
               title="Only English letters, spaces or dashes. At least 2 characters."
             />
           </div>
-
-          <div class="form-group">
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone"
-              required
-              pattern="^\+[\d\s\-]{10,15}$"
-              title="Phone must start with '+' and contain 10 to 15 digits."
-              autocomplete="tel"
-            />
-          </div>
-        </div>
 
         <div class="form-row form-row-vertical">
           <div class="form-group">

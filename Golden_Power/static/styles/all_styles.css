@@ -434,3 +434,24 @@
     box-sizing: border-box;
 }
 
+/* Выровнять поля формы по левой стороне */
+.left-aligned-form {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+    /* Сужаем поле ввода отзыва */
+    .left-aligned-form textarea {
+        max-width: 100%;
+        width: 100%;
+        resize: vertical;
+        min-height: 80px;
+    }
+
+    /* Убираем центрирование групп, если задано */
+    .left-aligned-form .form-group {
+        display: block;
+        margin: 0 0 20px 0;
+    }
+

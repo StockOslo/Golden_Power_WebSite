@@ -8,7 +8,6 @@ class TestReviews(unittest.TestCase):
     def setUp(self):
         self.sample_reviews = [{
             'author': 'John Doe',
-            'phone': '+12345678901',
             'email': 'john@example.com',
             'date': '2025-05-20',
             'text': 'Great!'
@@ -37,8 +36,7 @@ class TestReviews(unittest.TestCase):
     def test_add_review_valid(self, mock_request, mock_save, mock_load):
         mock_request.forms.get.side_effect = lambda k, d='': {
             'author': 'Alice Smith',
-            'phone': '+123456789012',
-            'email': 'alice@example.com',
+            'email': 'alice@gmail.com',
             'text': 'Nice work!'
         }.get(k, d)
 
@@ -48,16 +46,25 @@ class TestReviews(unittest.TestCase):
 
         self.assertIn('success', result)
         self.assertTrue(result['success'])
+
         mock_save.assert_called_once()
+
         saved_data = mock_save.call_args[0][0]
-        self.assertEqual(saved_data[0]['author'], 'Alice Smith')
+        self.assertIsInstance(saved_data, list)
+        self.assertGreater(len(saved_data), 0)
+        self.assertEqual(saved_data[-1]['author'], 'Alice Smith')
+        self.assertDictContainsSubset({
+        'author': 'Alice Smith',
+        'email': 'alice@gmail.com',
+        'text': 'Nice work!'
+        }, saved_data[-1])
+
 
     @patch('forms.reviews.load_reviews')
     @patch('forms.reviews.request')
     def test_add_review_missing_fields(self, mock_request, mock_load):
         mock_request.forms.get.side_effect = lambda k, d='': {
             'author': '',
-            'phone': '+123456789012',
             'email': 'alice@example.com',
             'text': 'Some text'
         }.get(k, d)
@@ -72,7 +79,6 @@ class TestReviews(unittest.TestCase):
     def test_add_review_invalid_email(self, mock_request, mock_load):
         mock_request.forms.get.side_effect = lambda k, d='': {
             'author': 'Alice Smith',
-            'phone': '+123456789012',
             'email': 'invalid-email',
             'text': 'Some text'
         }.get(k, d)
@@ -84,18 +90,31 @@ class TestReviews(unittest.TestCase):
 
     @patch('forms.reviews.load_reviews')
     @patch('forms.reviews.request')
-    def test_add_review_duplicate_email(self, mock_request, mock_load):
+    def test_add_review_invalid_name(self, mock_request, mock_load):
         mock_request.forms.get.side_effect = lambda k, d='': {
-            'author': 'Bob',
-            'phone': '+123456789012',
-            'email': 'john@example.com',
-            'text': 'Another review'
+            'author': '123@@@',
+            'email': 'bob@example.com',
+            'text': 'Valid text'
         }.get(k, d)
 
-        mock_load.return_value = self.sample_reviews
+        mock_load.return_value = []
         result = reviews.add_review_TEST()
         self.assertIn('error', result)
-        self.assertEqual(result['error'], "You have already submitted a review with this email.")
+        self.assertEqual(result['error'], "Name must contain only English letters, spaces or dashes and be at least 2 characters.")
+
+    @patch('forms.reviews.load_reviews')
+    @patch('forms.reviews.request')
+    def test_add_review_invalid_text(self, mock_request, mock_load):
+        mock_request.forms.get.side_effect = lambda k, d='': {
+            'author': 'Alice Smith',
+            'email': 'alice@example.com',
+            'text': '!!!?'
+        }.get(k, d)
+
+        mock_load.return_value = []
+        result = reviews.add_review_TEST()
+        self.assertIn('error', result)
+        self.assertEqual(result['error'], "Comment must contain at least two English letters.")
 
 if __name__ == '__main__':
     unittest.main()
