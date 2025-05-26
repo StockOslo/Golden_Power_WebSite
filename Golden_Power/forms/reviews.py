@@ -1,10 +1,8 @@
 from bottle import route, view, request, redirect
 import json
-import os
 import re
 from datetime import datetime
 from pathlib import Path
-from bottle import HTTPResponse
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 REVIEWS_FILE = PROJECT_ROOT / 'static' / 'json_storage' / 'storage_reviews.json'
@@ -37,34 +35,28 @@ def show_reviews():
         error=None
     )
 
-
 @route('/add', method='POST')
 @view('reviews')
 def add_review():
     author = request.forms.get('author', '').strip()
-    phone = request.forms.get('phone', '').strip()
     email = request.forms.get('email', '').strip()
     text = request.forms.get('text', '').strip()
 
     reviews = load_reviews()
     error = None
 
-    # Email format
     email_regex = r'^[\w\.-]+@[\w\.-]+\.\w{2,64}$'
-    # Name: только латинские буквы, пробелы, тире, минимум 2 символа
     name_regex = r'^[A-Za-z\s\-]{2,151}$'
-    # Phone: начинается с +, и далее 10–15 цифр (разрешены пробелы и дефисы)
-    phone_regex = r'^\+[\d\s\-]{10,15}$'
+    text_regex = r'(.*[A-Za-z].*){2,}'
 
-    # Проверка обязательных полей
-    if not (author and phone and email and text):
+    if not (author and email and text):
         error = "All fields are required."
     elif not re.match(name_regex, author):
         error = "Name must contain only English letters, spaces or dashes and be at least 2 characters."
     elif not re.match(email_regex, email):
         error = "Invalid email address."
-    elif not re.match(phone_regex, phone):
-        error = "Phone must start with '+' and contain 10 to 15 digits."
+    elif not re.search(text_regex, text):
+        error = "Comment must contain at least two English letters."
     elif any(r.get('email', '').strip().lower() == email.lower() for r in reviews):
         error = "You have already submitted a review with this email."
 
@@ -79,7 +71,6 @@ def add_review():
 
     new_review = {
         'author': author,
-        'phone': phone,
         'email': email,
         'date': datetime.now().strftime('%Y-%m-%d'),
         'text': text
@@ -92,26 +83,27 @@ def add_review():
 
 def add_review_TEST(return_dict=False):
     author = request.forms.get('author', '').strip()
-    phone = request.forms.get('phone', '').strip()
     email = request.forms.get('email', '').strip()
     text = request.forms.get('text', '').strip()
 
     error = None
 
-    email_regex = r'^[\w\.-]+@[\w\.-]+\.\w{2,64}$'
-    name_regex = r'^[A-Za-z\s\-]{2,151}$'
-    phone_regex = r'^\+[\d\s\-]{10,15}$'
+    reviews_list = load_reviews()
 
-    if not all([author, phone, email, text]):
+    email_regex = r'^[\w\.-]+@[\w\.-]+\.\w{2,64}$'
+    name_regex = r'^[A-Za-z\s\-]{2,50}$'
+    text_regex = r'(.*[A-Za-z].*){2,151}'
+
+    if not all([author, email, text]):
         error = 'All fields are required.'
     elif not re.match(name_regex, author):
         error = "Name must contain only English letters, spaces or dashes and be at least 2 characters."
     elif not re.match(email_regex, email):
         error = 'Invalid email address.'
-    elif not re.match(phone_regex, phone):
-        error = "Phone must start with '+' and contain 10 to 15 digits."
-
-    reviews_list = load_reviews()
+    elif not re.search(text_regex, text):
+        error = 'Comment must contain at least two English letters.'
+    elif any(r.get('email', '').strip().lower() == email.lower() for r in reviews_list):
+        error = 'You have already submitted a review with this email.'
 
     if any(r.get('email', '').strip().lower() == email.lower() for r in reviews_list):
         error = 'You have already submitted a review with this email.'
@@ -121,7 +113,6 @@ def add_review_TEST(return_dict=False):
 
     new_review = {
         'author': author,
-        'phone': phone,
         'email': email,
         'date': datetime.now().strftime('%Y-%m-%d'),
         'text': text
