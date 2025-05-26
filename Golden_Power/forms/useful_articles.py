@@ -1,5 +1,4 @@
-# Импортируем необходимые библиотеки
-from bottle import route, view, post, request
+from bottle import route, view, post, request, redirect
 import json
 import os
 import re
@@ -101,8 +100,7 @@ def add_article():
     articles = load_articles()
     for entry in articles:
         if entry['email'].lower() == email.lower() and entry['author'] != author:
-            errors.append("This email is already registered with another author.")
-            break
+            return redirect('/useful_articles?email_error=1')
 
     if errors:
         return dict(articles=articles, errors=errors, year=datetime.now().year)
@@ -120,3 +118,23 @@ def add_article():
     }
     save_article(new_entry)
     return dict(articles=load_articles(), errors=[], year=datetime.now().year)
+
+
+# Валидация данных статьи для unit-тестирования
+def validate_article_form(author, email, title, image_url, article_link, description):
+    """Валидация данных статьи. Возвращает список ошибок."""
+    errors = []
+    if not author or len(author) < 4:
+        errors.append("Author name is required and must be at least 4 characters.")
+    if not email or not is_valid_email(email):
+        errors.append("Valid email is required.")
+    if not title or len(title) < 4:
+        errors.append("Article title is required and must be at least 4 characters.")
+    if not image_url or not is_valid_url(image_url):
+        errors.append("Valid image URL is required.")
+    if not article_link or not is_valid_url(article_link):
+        errors.append("Valid article link is required.")
+    desc_no_space = re.sub(r'\s+', '', description)
+    if not description or len(desc_no_space) < 10:
+        errors.append("Description must be at least 10 characters (excluding spaces).")
+    return errors

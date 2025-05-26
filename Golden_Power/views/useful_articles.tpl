@@ -1,22 +1,7 @@
 % rebase('layout.tpl', title='Useful Object Files', year=year)
 % errors   = locals().get('errors', [])
 % articles = locals().get('articles', [])
-
-
-
-
-<style>
-
-input#article_link, textarea#description {
-  min-width: 350px;
-  max-width: 650px;
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  /* removed height and font-size as per instructions */
-}
-</style>
-
+<script src="/static/scripts/Useful_articles.js"></script>
 <div class="scroll-shadow-block">
   <!-- 1) Шапка с заголовком и фотками -->
   <div class="jumbotron useful-header">
@@ -28,29 +13,33 @@ input#article_link, textarea#description {
 
   <div class="container useful-object-files">
 
-    <!-- 3) Ряд карточек статей с прокруткой -->
-    <div class="cards-scroll">
-      % if articles:
-        % for article_entry in articles:
-          % article = article_entry.get('article', {})
-          <a href="{{article.get('link', '#')}}" class="object-file-card">
-            <img src="{{article.get('image_url', '')}}" alt="{{article.get('title', '')}}" class="card-image" />
-            <h3>{{article.get('title', '')}}</h3>
-            <p class="object-file-text">{{article.get('description', '')}}</p>
-            <div class="meta">
-              <span class="author">{{article_entry.get('author', '')}}</span>
-              <span class="date">{{article_entry.get('created_at', '')}}</span>
-            </div>
-          </a>
-        % end
-      % else:
-        <p>No articles available.</p>
-      % end
+    <!-- 2) Ряд карточек статей с прокруткой -->
+    <div class="cards-block-scroll">
+      <div class="cards-scroll-wrapper">
+        <div class="cards-scroll">
+          % if articles:
+            % for article_entry in articles:
+              % article = article_entry.get('article', {})
+              <a href="{{article.get('link', '#')}}" class="object-file-card">
+                <img src="{{article.get('image_url', '')}}" alt="{{article.get('title', '')}}" class="card-image" />
+                <h3>{{article.get('title', '')}}</h3>
+                <p class="object-file-text">{{article.get('description', '')}}</p>
+                <div class="meta">
+                  <span class="author">{{article_entry.get('author', '')}}</span>
+                  <span class="date">{{article_entry.get('created_at', '')}}</span>
+                </div>
+              </a>
+            % end
+          % else:
+            <p>No articles available.</p>
+          % end
+        </div>
+      </div>
     </div>
 
-    <!-- 4) Форма добавления -->
+    <!-- 3) Форма добавления -->
     <div class="form-card">
-      <h2>Add Object File</h2>
+      <h2>Add Article</h2>
       <form method="post" action="/useful_articles">
         <div class="form-group">
           <label for="author">Author</label>
