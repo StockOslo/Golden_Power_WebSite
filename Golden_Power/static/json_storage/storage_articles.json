@@ -4,32 +4,87 @@
         "email": "erik.antonov@icloud.com",
         "created_at": "2025-05-23",
         "article": {
-            "title": "How to be",
-            "image_url": "http://localhost:8080/useful_articles",
-            "link": "http://localhost:8080/useful_articles",
-            "description": "<style>\r\n.form-card input[type=\"text\"],\r\n.form-card input[type=\"date\"],\r\n.form-card input[type=\"url\"],\r\n.form-card input[type=\"email\"],\r\n.form-card textarea {\r\n  width: 100%;\r\n  box-sizing: border-box;\r\n  border-radius: 8px;\r\n  border: 1.5px solid #e4cc70;\r\n  padding: 12px 13px;\r\n  font-size: 16px;\r\n  margin-bottom: 0;\r\n  background: #fffbef;\r\n}\r\n.form-card textarea {\r\n  min-height: 100px;\r\n  resize: vertical;\r\n}\r\n</style>"
+            "title": "Kids our future",
+            "image_url": "https://eurodon61.ru/upload/iblock/982/f2a7mlbdnq6fgpkneg1pqdmiw7uvvyvq.jpg",
+            "link": "https://eurodon61.ru/about/articles/rol-sporta-v-zhizni-rebyenka-ot-doshkolnogo-vozrasta-do-podrostkov/",
+            "description": "How kids can add impact in our life"
         }
     },
     {
-        "author": "Erika",
-        "email": "erik.antonov@icloud.com",
-        "created_at": "2025-05-23",
+        "author": "Alexey",
+        "email": "Alexey@gmail.com",
+        "created_at": "2025-05-26",
         "article": {
-            "title": "How to be",
-            "image_url": "http://localhost:8080/useful_articles",
-            "link": "http://localhost:8080/useful_articles",
-            "description": "http://localhost:8080/useful_articles"
+            "title": "New word of football",
+            "image_url": "https://ss.sport-express.ru/userfiles/materials/211/2112919/1180x665.jpg",
+            "link": "https://ss.sport-express.ru/userfiles/materials/211/2112919/1180x665.jpg",
+            "description": "How Messi change malosia"
         }
     },
     {
-        "author": "Erika",
-        "email": "erika.antonov@icloud.com",
-        "created_at": "2025-05-23",
+        "author": "Spaletti",
+        "email": "Spaletti@gmail.com",
+        "created_at": "2025-05-26",
         "article": {
-            "title": "http://localhost:8080/useful_articles",
-            "image_url": "http://localhost:8080/useful_articles",
-            "link": "http://localhost:8080/useful_articles",
-            "description": "http://localhost:8080/useful_articles"
+            "title": "Old  football",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Cr7_11_September_2021.jpg/250px-Cr7_11_September_2021.jpg",
+            "link": "https://www.transfermarkt.com/no-cristiano-ronaldo-in-the-xi-the-players-with-the-most-games-played-with-luka-modric/view/news/454327",
+            "description": "Ronaldo can play in wold club cup"
+        }
+    },
+    {
+        "author": "Dmitriy",
+        "email": "dimka_korshun@gmail.com",
+        "created_at": "2025-05-25",
+        "article": {
+            "title": "Roney Coleman Legend?",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Ronnie_Coleman_8_x_Mr_Olympia_-_2009_-_5.png",
+            "link": "https://www.accessnewswire.com/newsroom/en/sports-leisure-and-entertainment/ronnie-coleman-receives-ben-weiders-lifetime-achievement-award-expa-907580",
+            "description": "He win olypia 15 times"
+        }
+    },
+    {
+        "author": "German",
+        "email": "German@gmail.com",
+        "created_at": "2025-05-26",
+        "article": {
+            "title": "How to be 007",
+            "image_url": "https://d150u0abw3r906.cloudfront.net/wp-content/uploads/2022/03/image27-2.png",
+            "link": "https://screenrant.com/bond-26-alfonso-cuaron-director-inspired-choice/",
+            "description": "Top 5 advise to be secret agent"
+        }
+    },
+    {
+        "author": "German",
+        "email": "German@gmail.com",
+        "created_at": "2025-05-26",
+        "article": {
+            "title": "How to be 007",
+            "image_url": "https://d150u0abw3r906.cloudfront.net/wp-content/uploads/2022/03/image27-2.png",
+            "link": "https://screenrant.com/bond-26-alfonso-cuaron-director-inspired-choice/",
+            "description": "Top 5 advise to be secret agent"
+        }
+    },
+    {
+        "author": "German",
+        "email": "German@gmail.com",
+        "created_at": "2025-05-26",
+        "article": {
+            "title": "How to be 007",
+            "image_url": "https://d150u0abw3r906.cloudfront.net/wp-content/uploads/2022/03/image27-2.png",
+            "link": "https://screenrant.com/bond-26-alfonso-cuaron-director-inspired-choice/",
+            "description": "Top 5 advise to be secret agent"
+        }
+    },
+    {
+        "author": "eqj009vjeqf",
+        "email": "Alexey@gmial.com",
+        "created_at": "2025-05-26",
+        "article": {
+            "title": "JFiwjefieq",
+            "image_url": "https://www.reddit.com/r/GalaxyFold/comments/pi9tn3/galaxy_z_fold_3_weird_dot_on_inner_screen/?tl=ru",
+            "link": "https://www.reddit.com/r/GalaxyFold/comments/pi9tn3/galaxy_z_fold_3_weird_dot_on_inner_screen/?tl=ru",
+            "description": "https://www.reddit.com/r/GalaxyFold/comments/pi9tn3/galaxy_z_fold_3_weird_dot_on_inner_screen/?tl=ruhttps://www.reddit.com/r/GalaxyFold/comments/pi9tn3/galaxy_z_fold_3_weird_dot_on_inner_screen/?tl=ru"
         }
     }
 ]
