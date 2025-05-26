@@ -1,123 +1,86 @@
-% rebase('layout.tpl', title='Customer Reviews', year=year)
+% rebase('layout.tpl', title=title, year=year)
 
-<style>
-    .jumbotron {
-        background: linear-gradient(45deg, #ffd700, #daa520);
-        color: white;
-        padding: 70px 50px;
-        text-align: center;
-        border-radius: 10px;
-        position: relative;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    .jumbotron .lead {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
 
-    .btn-custom {
-        background: linear-gradient(45deg, #ffd700, #daa520);
-        color: white;
-        border: none;
-        transition: 0.3s;
-        font-size: 1.5rem;
-        padding: 15px 30px;
-        font-weight: bold;
-        text-transform: uppercase;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-custom:hover {
-        background: linear-gradient(45deg, #daa520, #ffd700);
-        transform: scale(1.1);
-    }
-
-    .reviews-section {
-        background: #f8f9fa;
-        color: #343a40;
-        padding: 70px 50px;
-        text-align: center;
-        border-radius: 10px;
-        margin-top: 50px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .reviews-section h1 {
-        font-size: 3.5rem;
-        margin-bottom: 40px;
-    }
-
-    .reviews-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-top: 30px;
-    }
-
-    .review-card {
-        background: white;
-        color: #343a40;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        transition: transform 0.3s ease;
-    }
-
-    .review-card:hover {
-        transform: scale(1.05);
-    }
-
-    .review-card img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-    }
-
-    .review-card p {
-        font-size: 1.4rem;
-        line-height: 1.5;
-        margin: 10px 0;
-    }
-</style>
-
-<div class="jumbotron">
-    <div>
-        <h1>Customer Reviews</h1>
-        <p class="lead">What our customers are saying about us</p>
-    </div>
-</div>
-
-<div class="reviews-section">
-    <div class="reviews-grid">
-        <div class="review-card">
-            <img src="static/images/reviewer1.jpg" alt="Reviewer 1">
-            <p>"I love these products! They have really boosted my workout routine." - John Smith</p>
-        </div>
-        <div class="review-card">
-            <img src="static/images/reviewer2.jpg" alt="Reviewer 2">
-            <p>"Fantastic quality and design. Highly recommended!" - James Wilson</p>
-        </div>
-        <div class="review-card">
-            <img src="static/images/reviewer3.jpg" alt="Reviewer 3">
-            <p>"Great experience, fast delivery, and excellent service." - Robert Brown</p>
-        </div>
-        <div class="review-card">
-            <img src="static/images/reviewer4.jpg" alt="Reviewer 4">
-            <p>"The nutritional supplements made a huge difference in my training." - Mark Taylor</p>
-        </div>
-        <div class="review-card">
-            <img src="static/images/reviewer5.jpg" alt="Reviewer 5">
-            <p>"Really impressed by the quality of the gym equipment." - Michael Davis</p>
-        </div>
-        <div class="review-card">
-            <img src="static/images/reviewer6.jpg" alt="Reviewer 6">
-            <p>"A wonderful selection of sports goods. I will definitely buy again!" - William Wilson</p>
+    <div class="jumbotron">
+        <div>
+            <h1>Customer Reviews</h1>
+            <p class="lead">What our customers are saying about us</p>
         </div>
     </div>
-</div>
+
+  <div class="scroll-shadow-block">
+    <section class="add-form-section">
+      <h2>Add a Review</h2>
+      <form action="/add" method="post" class="form-card left-aligned-form" novalidate>
+
+        <div class="form-row form-row-vertical">
+          <div class="form-group">
+            <input
+              type="text"
+              name="author"
+              placeholder="Your name or nickname"
+              required
+              autocomplete="name"
+              pattern="^[A-Za-z\s\-]{2,}$"
+              title="Only English letters, spaces or dashes. At least 2 characters."
+            />
+          </div>
+
+        <div class="form-row form-row-vertical">
+          <div class="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email address"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="form-group full">
+            <textarea
+              name="text"
+              placeholder="Your review..."
+              required
+              rows="5"
+              maxlength="150"
+              title="Message must not contain Cyrillic characters."
+            ></textarea>
+          </div>
+        </div>
+
+        % if error:
+          <div class="error-message">{{ error }}</div>
+        % end
+
+        <button type="submit" class="btn-custom">Submit</button>
+      </form>
+    </section>
+
+    <section class="cards-section">
+      <div class="cards-scroll-reviews">
+        % for r in reviews:
+          <article class="object-file-card-reviews">
+            <h3>{{ r['author'] }}</h3>
+            <p class="object-file-text">{{ r['text'] }}</p>
+            <div class="meta">
+              <time datetime="{{ r['date'] }}">{{ r['date'] }}</time> |
+              <span class="email">{{ r.get('email', '') }}</span>
+            </div>
+          </article>
+        % end
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

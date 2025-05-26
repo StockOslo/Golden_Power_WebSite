@@ -1,0 +1,400 @@
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-nav.navbar-right > li > a {
+    font-family: "Academy Engraved LET";
+    color: gold;
+}
+
+/* container_about */
+/* Для картинок внутри .container только на первом уровне */
+.container > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+/* profile-photo_account */
+.profile-photo img {
+    width: 100px;
+    height: 100px;
+}
+
+/* articles_styles_articles */
+.form-group {
+    margin-bottom: 1rem;
+    max-width: none;
+    flex: 1;
+}
+
+/* cart_styles_cart */
+.jumbotron {
+    background: linear-gradient(45deg, #ffd700, #daa520);
+    color: white;
+}
+/* useful-header */
+.useful-header {
+    background: linear-gradient(45deg, #ffd700, #daa520);
+    padding: 40px 0;
+    color: white;
+}
+.useful-header .lead {
+    margin-top: 10px;
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+.useful-header .header-photos {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.useful-header .header-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* useful-articles_useful_articles */
+/* контейнер списка статей — фиксированная высота + скролл */
+.useful-articles .articles-container {
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* стили для каждого элемента статьи */
+.useful-articles .article-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    transition: box-shadow 0.3s;
+}
+.useful-articles .article-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.useful-articles .article-item h2 a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+.useful-articles .article-item h2 a:hover {
+    color: gold;
+}
+/* Email styles inside .meta */
+/* Removed .useful-articles .meta styles to avoid conflicts with meta block in cards */
+
+/* форма добавления статьи */
+.useful-articles .article-form {
+    margin-top: 40px;
+}
+.useful-articles .article-form h2 {
+    font-family: "Academy Engraved LET";
+    color: gold;
+    margin-bottom: 20px;
+}
+/* Общий контейнер с белым фоном и тенью */
+.scroll-shadow-block {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  padding: 36px 40px 42px 40px;
+  margin: 36px auto 40px auto;
+  max-width: 1440px;
+  min-height: 600px;
+  overflow: visible;
+}
+
+/* Шапка — отделить, выровнять */
+.useful-header {
+  margin-bottom: 24px;
+  padding: 26px 0 22px 0;
+  text-align: center;
+  background: linear-gradient(45deg, #f3cb04 60%, #ffeab1 100%);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(255,215,0,0.07);
+}
+
+/* Раздел с карточками — сделать отдельным блоком с отступами */
+.cards-section {
+  background: #fffdf6;
+  border-radius: 12px;
+  margin-bottom: 34px;
+  padding: 24px 12px 24px 12px;
+}
+
+/* Обертка для центрирования сетки карточек */
+.cards-scroll-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Сетка карточек */
+.cards-scroll {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 38px;
+  justify-items: center;
+  align-items: start;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* Карточки — сделать ровнее и выразительнее */
+/* Карточка статьи — контейнер */
+.object-file-card {
+  width: 94%;
+  min-width: 260px;
+  max-width: 355px;
+  background: #fff;
+  border: 2px solid #ffe076;
+  border-radius: 13px;
+  box-shadow: 0 3px 18px rgba(220,195,30,0.07);
+  padding: 52px 18px 68px 18px;
+  transition: box-shadow 0.2s, border 0.2s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 560px;
+}
+.object-file-card:hover {
+  box-shadow: 0 8px 26px rgb(255, 217, 0);
+  border-color: #ffd700;
+}
+
+/* Форма добавления — отдельный блок с фоном */
+.add-form-section {
+  background: #fffefa;
+  border-radius: 13px;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.06);
+  padding: 34px 22px 28px 22px;
+  margin-top: 40px;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Заголовок формы */
+.add-form-section h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Сетка полей формы */
+.form-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.form-group {
+  flex: 1 1 0;
+  max-width: none;
+  min-width: 180px;
+}
+.form-group.full {
+  max-width: 100%;
+}
+
+/* Нормализованные стили для всех input и textarea в .form-card */
+.form-card input[type="text"],
+.form-card input[type="date"],
+.form-card input[type="url"],
+.form-card input[type="email"],
+.form-card textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1.5px solid #e4cc70;
+  padding: 12px 13px;
+  font-size: 16px;
+  margin-bottom: 0;
+  background: #fffbef;
+}
+.form-card textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Медиа: адаптивность */
+@media (max-width: 1050px) {
+  .cards-scroll {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .scroll-shadow-block {
+    padding: 10px 2vw 22px 2vw;
+  }
+  .cards-section {
+    padding: 6px 0 18px 0;
+  }
+  .cards-scroll {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .add-form-section {
+    padding: 12px 4vw 18px 4vw;
+  }
+}
+
+.add-form-section button,
+.btn-custom {
+  margin: 28px auto 0 auto;
+  display: block;
+}
+
+/* Исправление лишних черных полос по краям */
+.scroll-shadow-block::before,
+.scroll-shadow-block::after {
+  display: none !important;
+}
+.scroll-shadow-block {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow:
+      0 2px 8px 0 rgba(0,0,0,0.12),
+      0 6px 24px 0 rgba(0,0,0,0.16);
+    padding: 32px 24px;
+    margin: 30px auto;
+    max-width: 1420px;
+    min-height: 700px;
+    overflow: auto;
+  }
+
+  /* Центрируем и стилизуем шапку */
+  .useful-header .container {
+    text-align: center;
+  }
+
+
+  /* Оформление блока добавления */
+  .form-card {
+    width: 100%;
+    margin: 40px auto 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  /* Выровнять текст лейблов и полей ввода по левому краю в форме добавления */
+  .form-card label,
+  .form-card input,
+  .form-card textarea {
+    text-align: left;
+  }
+  .form-card .form-group {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 20px;
+    width: 100%;
+    min-width: 180px;
+    max-width: none;
+    flex: 1;
+    /* text-align: left; */ /* Не выравнивать по центру */
+  }
+
+  .form-card button {
+    display: block;
+    margin: 20px auto 0;
+  }
+
+  /* New form layout rows */
+  .form-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 15px;
+    /* text-align: left; */ /* Не выравнивать по центру */
+  }
+  .form-row .form-group {
+    flex: 1;
+    /* text-align: left; */
+  }
+  .form-group.full {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+.form-card input[type="text"],
+.form-card input[type="date"],
+.form-card input[type="url"],
+.form-card input[type="email"],
+.form-card input[type="tel"],
+.form-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1.5px solid #e4cc70;
+    padding: 12px 13px;
+    font-size: 16px;
+    margin-bottom: 0;
+    background: #fffbef;
+}
+.form-card textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+
+
+
+.form-row-vertical {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+    justify-content: flex-start !important;
+}
+
+.form-row-vertical .form-group {
+    max-width: 100% !important;
+    flex: none !important;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.cards-scroll-reviews {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет переносить на следующую строку */
+    gap: 20px; /* Отступы между карточками */
+    justify-content: center;
+}
+
+.object-file-card-reviews {
+    flex: 1 1 calc(33.33% - 40px); /* 3 карточки на строку с учётом gap */
+    max-width: calc(33.33% - 40px);
+    box-sizing: border-box;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    word-wrap: break-word;
+}
+
+.form-group.full textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 150px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+}
