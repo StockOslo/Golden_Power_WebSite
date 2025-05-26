@@ -1,32 +1,8 @@
-import re
 
-EMAIL_RE = re.compile(
-    r"^(?!\.)[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*"
-    r"@"
-    r"(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+"
-    r"[A-Za-z]{2,63}$"
-)
-URL_RE = re.compile(
-    r'^(https?://)'
-    r'(([A-Za-z0-9-]+\.)+[A-Za-z]{2,6}|'
-    r'localhost|'
-    r'(\d{1,3}\.){3}\d{1,3})'
-    r'(:\d+)?'
-    r'(/.*)?$'
-)
-
-def is_valid_email(email):
-    m = EMAIL_RE.match(email)
-    if not m:
-        return False
-    local, domain = email.split('@', 1)
-    if len(local) > 64 or len(domain) > 255 or len(email) > 254:
-        return False
-    return True
-
-def is_valid_url(url):
-    return bool(URL_RE.match(url))
 import unittest
+from  Golden_Power.forms.useful_articles import  is_valid_email, is_valid_url
+
+
 
 
 class TestAddArticleLogic(unittest.TestCase):
@@ -127,7 +103,12 @@ class TestEmailPattern(unittest.TestCase):
             "student99@mit.edu",
             "team-lead@project.net",
             "special!char@site.com",
-            "somebody@school.us"
+            "somebody@school.us",
+            "unique_user@brand.travel",
+            "valid_email123@very-long-domain-name.info",
+            "user.test@localhost.com",
+            "with-dash@abc-def.com",
+            "capitalLETTERS@DOMAIN.com"
         ]
         for email in valid_emails:
             self.assertTrue(is_valid_email(email), f"Should be valid: {email}")
@@ -145,7 +126,9 @@ class TestEmailPattern(unittest.TestCase):
             "user site@domain.com",
             "user@",
             "a@b..com",
-            "thislocalpartiswaytoolongforarealemailsystemandshouldfailbecauseitisover64characters@example.com"
+            "thislocalpartiswaytoolongforarealemailsystemandshouldfailbecauseitisover64characters@example.com",
+            "missingatsign.com",
+            "just@one@sign.com"
         ]
         for email in invalid_emails:
             self.assertFalse(is_valid_email(email), f"Should be invalid: {email}")

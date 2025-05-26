@@ -5,7 +5,8 @@
 }
 
 /* container_about */
-.container img {
+/* Для картинок внутри .container только на первом уровне */
+.container > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -22,6 +23,8 @@
 /* articles_styles_articles */
 .form-group {
     margin-bottom: 1rem;
+    max-width: none;
+    flex: 1;
 }
 
 /* cart_styles_cart */
@@ -37,7 +40,8 @@
 }
 .useful-header .lead {
     margin-top: 10px;
-    font-size: 1.2rem;
+    font-size: 2.1rem;
+    font-weight: 600;
 }
 .useful-header .header-photos {
     display: flex;
@@ -80,31 +84,8 @@
 .useful-articles .article-item h2 a:hover {
     color: gold;
 }
-.useful-articles .meta {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 10px;
-}
 /* Email styles inside .meta */
-.meta .email {
-    color: #a98b2a;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    font-size: 0.98em;
-    margin-left: 8px;
-    margin-right: 8px;
-    word-break: break-all;
-    opacity: 0.96;
-}
-.meta .email::before {
-    content: "✉️ ";
-    font-size: 1em;
-    margin-right: 2px;
-}
-.useful-articles .article-text {
-    line-height: 1.6;
-    color: #444;
-}
+/* Removed .useful-articles .meta styles to avoid conflicts with meta block in cards */
 
 /* форма добавления статьи */
 .useful-articles .article-form {
@@ -145,15 +126,26 @@
   padding: 24px 12px 24px 12px;
 }
 
+/* Обертка для центрирования сетки карточек */
+.cards-scroll-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 /* Сетка карточек */
 .cards-scroll {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 38px;
   justify-items: center;
+  align-items: start;
+  padding: 20px 0;
+  width: 100%;
 }
 
 /* Карточки — сделать ровнее и выразительнее */
+/* Карточка статьи — контейнер */
 .object-file-card {
   width: 94%;
   min-width: 260px;
@@ -162,10 +154,13 @@
   border: 2px solid #ffe076;
   border-radius: 13px;
   box-shadow: 0 3px 18px rgba(220,195,30,0.07);
-  padding: 18px 14px 22px 14px;
+  padding: 52px 18px 68px 18px;
   transition: box-shadow 0.2s, border 0.2s;
   text-align: center;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 560px;
 }
 .object-file-card:hover {
   box-shadow: 0 8px 26px rgb(255, 217, 0);
@@ -192,14 +187,16 @@
 
 /* Сетка полей формы */
 .form-row {
-  display: flex;
-  gap: 22px;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 16px !important;
   margin-bottom: 20px;
   justify-content: center;
 }
 .form-group {
   flex: 1 1 0;
-  max-width: 300px;
+  max-width: none;
   min-width: 180px;
 }
 .form-group.full {
@@ -282,50 +279,6 @@
     text-align: center;
   }
 
-  /* Сетка карточек статей с вертикальной прокруткой */
-  .cards-scroll {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: auto;
-    row-gap: 20px;
-    column-gap: 20px;
-    padding: 20px 0;
-    max-height: 800px; /* adjust as needed for visible rows */
-    overflow-y: auto;
-  }
-
-  /* Оформление самой карточки */
-  .object-file-card {
-    flex: 0 0 300px;
-    box-sizing: border-box;
-    background: #fff;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid gold;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  .object-file-card:hover {
-    border-width: 4px;
-    border-color: gold;
-    text-decoration: none; /* убираем подчеркивание */
-    transition: border-width 0.15s;
-  }
-  .object-file-card h3,
-  .object-file-card .object-file-text {
-    margin: 0 0 10px;
-  }
-  .card-image {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 10px;
-  }
 
   /* Оформление блока добавления */
   .form-card {
@@ -335,7 +288,13 @@
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    text-align: center;
+    text-align: left;
+  }
+  /* Выровнять текст лейблов и полей ввода по левому краю в форме добавления */
+  .form-card label,
+  .form-card input,
+  .form-card textarea {
+    text-align: left;
   }
   .form-card .form-group {
     display: inline-block;
@@ -343,7 +302,9 @@
     margin: 0 10px 20px;
     width: 100%;
     min-width: 180px;
-    max-width: 320px;
+    max-width: none;
+    flex: 1;
+    /* text-align: left; */ /* Не выравнивать по центру */
   }
 
   .form-card button {
@@ -353,12 +314,16 @@
 
   /* New form layout rows */
   .form-row {
-    display: flex;
-    gap: 20px;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 16px !important;
     margin-bottom: 15px;
+    /* text-align: left; */ /* Не выравнивать по центру */
   }
   .form-row .form-group {
     flex: 1;
+    /* text-align: left; */
   }
   .form-group.full {
     flex: 1 1 100%;
@@ -433,25 +398,3 @@
     overflow: auto;
     box-sizing: border-box;
 }
-
-/* Выровнять поля формы по левой стороне */
-.left-aligned-form {
-    text-align: left;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-    /* Сужаем поле ввода отзыва */
-    .left-aligned-form textarea {
-        max-width: 100%;
-        width: 100%;
-        resize: vertical;
-        min-height: 80px;
-    }
-
-    /* Убираем центрирование групп, если задано */
-    .left-aligned-form .form-group {
-        display: block;
-        margin: 0 0 20px 0;
-    }
-

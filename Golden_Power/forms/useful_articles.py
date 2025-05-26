@@ -1,4 +1,4 @@
-from bottle import route, view, post, request
+from bottle import route, view, post, request, redirect
 import json
 import os
 import re
@@ -8,6 +8,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ARTICLES_FILE = PROJECT_ROOT / 'static' / 'json_storage' / 'storage_articles.json'
 
+# Регулярные выражения для проверки email и URL
 EMAIL_RE = re.compile(
     r"^(?!\.)[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*"
     r"@"
@@ -23,6 +24,7 @@ URL_RE = re.compile(
     r'(/.*)?$'
 )
 
+# Проверка корректности email
 def is_valid_email(email):
     m = EMAIL_RE.match(email)
     if not m:
@@ -32,9 +34,11 @@ def is_valid_email(email):
         return False
     return True
 
+# Проверка корректности URL
 def is_valid_url(url):
     return bool(URL_RE.match(url))
 
+# Загрузка статей из JSON-файла
 def load_articles():
     """Загружает все статьи."""
     if not os.path.exists(ARTICLES_FILE):
@@ -45,6 +49,7 @@ def load_articles():
     except Exception:
         return []
 
+# Сохранение новой статьи в JSON-файл
 def save_article(new_entry):
     """Добавляет статью для email, если автор совпадает или этот email новый."""
     articles = load_articles()
@@ -52,12 +57,18 @@ def save_article(new_entry):
     with open(ARTICLES_FILE, 'w', encoding='utf-8') as f:
         json.dump(articles, f, ensure_ascii=False, indent=4)
 
+# Отображение списка статей
 @route('/useful_articles')
 @view('useful_articles')
 def show_articles():
-    articles = load_articles()
+    articles = sorted(
+        load_articles(),
+        key=lambda x: x['created_at'],
+        reverse=True
+    )
     return dict(articles=articles, errors=[], year=datetime.now().year)
 
+# Добавление новой статьи с валидацией данных
 @post('/useful_articles')
 @view('useful_articles')
 def add_article():
@@ -89,8 +100,7 @@ def add_article():
     articles = load_articles()
     for entry in articles:
         if entry['email'].lower() == email.lower() and entry['author'] != author:
-            errors.append("This email is already registered with another author.")
-            break
+            return redirect('/useful_articles?email_error=1')
 
     if errors:
         return dict(articles=articles, errors=errors, year=datetime.now().year)
@@ -108,3 +118,23 @@ def add_article():
     }
     save_article(new_entry)
     return dict(articles=load_articles(), errors=[], year=datetime.now().year)
+
+
+# Валидация данных статьи для unit-тестирования
+def validate_article_form(author, email, title, image_url, article_link, description):
+    """Валидация данных статьи. Возвращает список ошибок."""
+    errors = []
+    if not author or len(author) < 4:
+        errors.append("Author name is required and must be at least 4 characters.")
+    if not email or not is_valid_email(email):
+        errors.append("Valid email is required.")
+    if not title or len(title) < 4:
+        errors.append("Article title is required and must be at least 4 characters.")
+    if not image_url or not is_valid_url(image_url):
+        errors.append("Valid image URL is required.")
+    if not article_link or not is_valid_url(article_link):
+        errors.append("Valid article link is required.")
+    desc_no_space = re.sub(r'\s+', '', description)
+    if not description or len(desc_no_space) < 10:
+        errors.append("Description must be at least 10 characters (excluding spaces).")
+    return errors
