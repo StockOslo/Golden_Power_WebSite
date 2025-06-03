@@ -30,6 +30,7 @@
                     <li><a href="/contact">Contact</a></li>
                     <li><a href="/useful_articles">Useful articles</a></li>
                     <li><a href="/reviews">Reviews</a></li>
+                    <li><a href="/partners">Partners</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/account">Account</a></li>

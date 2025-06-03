@@ -16,7 +16,7 @@
             <p class="lead">What our customers are saying about us</p>
         </div>
     </div>
-
+      <!-- 2) Ряд карточек статей с прокруткой -->
   <div class="scroll-shadow-block">
     <section class="add-form-section">
       <h2>Add a Review</h2>

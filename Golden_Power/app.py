@@ -6,7 +6,7 @@ import bottle
 import os
 import sys
 import routes
-from forms import useful_articles, reviews
+from forms import useful_articles, reviews, partners
 
 # Импортируем обработчики маршрутов
 

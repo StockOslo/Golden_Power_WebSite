@@ -1,48 +1,48 @@
 % rebase('layout.tpl', title='Home Page', year=year)
     
 <style>
-        .jumbotron {
-            background: linear-gradient(45deg, #ffd700, #daa520);
-            color: white;
-            padding: 50px;
-            text-align: center;
-            border-radius: 10px;
-            position: relative;
-        }
-        .btn-custom {
-            background: linear-gradient(45deg, #ffd700, #daa520);
-            color: white;
-            border: none;
-            transition: 0.3s;
-            font-size: 1.5rem;
-            padding: 15px 30px;
-            font-weight: bold;
-            text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .btn-custom:hover {
-            background: linear-gradient(45deg, #daa520, #ffd700);
-            transform: scale(1.1);
-        }
-        .product-card {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain; 
-            border-radius: 10px;
-        }
-        .section-title {
-            font-weight: bold;
-            font-size: 4rem;
-        }
-}
+    .jumbotron {
+        background: linear-gradient(45deg, #ffd700, #daa520);
+        color: white;
+        padding: 50px;
+        text-align: center;
+        border-radius: 10px;
+        position: relative;
+    }
+    .btn-custom {
+        background: linear-gradient(45deg, #ffd700, #daa520);
+        color: white;
+        border: none;
+        transition: 0.3s;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .btn-custom:hover {
+        background: linear-gradient(45deg, #daa520, #ffd700);
+        transform: scale(1.1);
+    }
+    .product-card {
+        text-align: center;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain; 
+        border-radius: 10px;
+    }
+    .section-title {
+        font-weight: bold;
+        font-size: 4rem;
+    }
 </style>
+
 
 <div class="jumbotron">
     <div class="mr-4">

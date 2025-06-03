@@ -140,3 +140,4 @@ def useful_articles():
         errors=[],
         year=datetime.now().year
     )
+
